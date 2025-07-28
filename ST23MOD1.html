@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html id="htmldoc" lang="es-MX">
+    <head>
+        <title>SIIOF</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1"/>
+        <link rel="icon" href="/siiofweb/APP_Siiofweb/Menu/images/siiof/favicon.png" type="image/x-icon" />
+		<script type="text/javascript" src="/siiofweb/APP_Siiofweb/Menu/js/Plantilla_SIIOF.js?sesion=A57955273D89D1CC4D8D3D5C36B77035A9FFEBADB1CD5B6D40FEBFC7D350C8">
+		
+        </script>
+
+        <script async data-main="js/main"  src="js/libs/require/require.js?sesion=A57955273D89D1CC4D8D3D5C36B77035A9FFEBADB1CD5B6D40FEBFC7D350C8"></script>
+        <script nonce="EDNnf03nceIOfn39fn3e9h3sdfa">
+        	Fn_Inicializa_Ambiente("Login");
+
+        </script>
+        <link rel="stylesheet" href="css/Tema_SIIOF.css?sesion=A57955273D89D1CC4D8D3D5C36B77035A9FFEBADB1CD5B6D40FEBFC7D350C8" media="screen"/>
+
+    </head>
+    <body class="siiof-signin-bg">
+        <div class="left">
+            <img src="../Menu/images/siiof/LOGO FIRA.svg" class="logo"/>
+        </div>
+        			   
+        <div id="div1">
+            <div id="page">
+				        <oj-messages messages="[[messagesDataprovider]]" position="{}" display="notification"></oj-messages>
+                <div align="center">
+                     
+                        <div class="oj-flex-item">
+                            <div class="center">
+                                <img src="../Menu/images/siiof/LOGOSIIOF.svg" class="marca"/>
+                            </div>
+                            <div class="siiof-signin-form-container oj-panel oj-sm-10">
+																
+                                    <oj-validation-group id="frm_valida_usuario" valid="{{v_valida_formulario}}">
+
+																  <oj-input-text id='TxtUsuario'
+                      														 placeholder='Usuario'
+                      														 spellcheck='false'
+                      														 autocorrect='off'
+                      														 autocapitalize=off
+                      														 aria-label='Nombre de usuario'
+                      														 value='{{v_usuario}}'
+                      														 label-hint='Usuario:'
+                      														 required='true'
+                      														 translations='{"required": {
+                      																		"messageSummary": "Usuario Requerido",
+                      																		"messageDetail": "Es necesario ingresar el usuario"}}'>
+																  </oj-input-text>
+																  <oj-input-password id='TxtContrasena'
+                      															 placeholder='Contraseña'
+                      															 aria-label='password'
+                      															 value='{{v_contrasena}}'
+                      															 required='true'
+                      															 label-hint='Contraseña:'
+                      															 translations='{"required": {
+                      																			"messageSummary": "Contraseña Requerida",
+                      																			"messageDetail": "Es necesario ingresar la contraseña"}}'>
+                      											</oj-input-password>
+                                            <div class="oj-hybrid-padding-top" align="center">
+                        												<oj-button id='BttnInicio'
+                        														   class='siiof-signin-button oj-button oj-button-confirm'
+                        														   chroming='full'
+                        														   on-oj-action='[[Fn_Inicia_Sesion]]'
+                        														   disabled='[[v_accion_entrar]]'>
+                        													<span class="siiof-signin-button-label">
+                        													<span class='oj-hybrid-padding-horizontal'>Entrar</span>
+                        													</span>
+                        												</oj-button>
+                        												<oj-progress id="idCirculoCargando" type="circle" value="{{v_Cargando_Animacion}}"></oj-progress>
+											</div>											
+                                    </oj-validation-group>
+                            </div>
+              							<oj-popup id="idCambioContrasena" position='{"my":{"vertical" :"center", "horizontal": "center"},
+              																	"at": {"vertical": "center", "horizontal": "center"}, "of": "window"}'
+              																	 auto-dismiss="none" style="overflow: auto; max-height:100vh; max-width:90vw;"
+              																	 modality="modal">
+              								<div align="center">
+              									<h3 class="oj-header-border">Cambiando la contraseña de <span data-bind="text: v_usuario"></span></h3>
+              								</div>
+              								<div align="left" class="panelCambio">
+              									<center><b>*Requisitos para establecer una nueva contraseña*</b></center><br>Longitud mínima de 8 y máxima de 30 caracteres alfanuméricos.<br>Debe iniciar con una letra.<br>Debe contener al menos:<br>- Una letra mayúscula.<br>- Una letra minúscula.<br>- Un dígito.<br>Puede (Opcionalmente) contener alguno(s) de los caracteres<br>especiales: "$", "#", "_".<br>No debe ser igual al nombre de usuario.<br>No debe contener el nombre de usuario.<br>No debe contener espacios en blanco.<br>Debe ser diferente a las 3 últimas contraseñas utilizadas.<br>La nueva contraseña no se utilizó en los últimos 90 días.
+              								</div>
+              								<div class="oj-flex">
+              									<div class="oj-flex-item">
+              											   <oj-validation-group id="frm_valida_contrasena" valid="{{frm_valida_contrasena}}">
+              												  <oj-form-layout label-edge="{{v_borde_etiqueta}}">
+              													<oj-input-password id="control4"
+              																   value="{{v_contrasena_anterior}}"
+              																   label-hint="Contraseña Anterior"
+              																   clear-icon="conditional"
+              																   placeholder="Contraseña Anterior"
+              																   autocomplete="off"
+              																   required
+              																   translations='{"required": {
+              																				  "hint": "",
+              																				  "messageSummary": "Valor Requerido",
+              																				  "messageDetail": "es necesario ingresar la contraseña anterior"}}'></oj-input-password>
+              													<oj-input-password id="control1"
+              																   value="{{v_nueva_contrasena}}"
+              																   label-hint="Nueva Contraseña"
+              																   clear-icon="conditional"
+              																   placeholder="Nueva Contraseña"
+              																   autocomplete="off"
+              																   required
+              																   translations='{"required": {
+              																				  "hint": "",
+              																				  "messageSummary": "Valor Requerido",
+              																				  "messageDetail": "es necesario ingresar la nueva contraseña"}}'></oj-input-password>
+              													<oj-input-password id="control3"
+              																   value="{{v_nueva_contrasena_r}}"
+              																   label-hint="Repetir Nueva Contraseña"
+              																   clear-icon="conditional"
+              																   placeholder="Repetir Nueva Contraseña"
+              																   autocomplete="off"
+              																   required
+              																   translations='{"required": {
+              																				  "hint": "",
+              																				  "messageSummary": "Valor Requerido",
+              																				  "messageDetail": "es necesario ingresar nuevamente la nueva contraseña"}}'></oj-input-password>
+
+              													</oj-form-layout>
+              												</oj-validation-group>
+              									</div>
+              								</div>
+              								<oj-toolbar chroming="full" class="oj-toolbar-top-border oj-sm-padding-12x-top oj-sm-justify-content-center">
+              								  <oj-button on-oj-action='[[fn_accion_guardar]]' disabled='[[v_btn_guardar_estatus]]' class='oj-button oj-button-confirm'>
+              									Aceptar
+              								  </oj-button>
+              								  <oj-button on-oj-action="[[Btn_fn_cerrar_ventana]]">
+              									Cancelar
+              								  </oj-button>
+              								</oj-toolbar>
+														</oj-popup>
+
+														<oj-popup id="MsgError" position='{"my":{"vertical" :"center", "horizontal": "center"},
+																					"at": {"vertical": "center", "horizontal": "center"}, "of": "window"}'
+															auto-dismiss="none" style="overflow: auto; max-height:100vh; max-width:90vw;" modality="modal">
+																<div class="siiof-popup-header"><h3>Mensaje Informativo</h3>
+																</div>
+																<div class="oj-flex">
+																	<div class="oj-flex-item" align="justify" id="Msg_alerta">
+																	</div>
+																</div>
+																<br>
+															<div slot="footer">
+																<oj-toolbar chroming="full" class="oj-toolbar-top-border oj-sm-padding-12x-top">
+																 <oj-button on-oj-action="[[Fn_aceptar_err]]" class="oj-button-confirm oj-button oj-component oj-enabled oj-button-full-chrome oj-button-text-icon-start oj-complete oj-default">Aceptar</oj-button>
+																</oj-toolbar>			
+															</div>
+														</oj-popup> 													
+
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
