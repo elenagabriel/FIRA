@@ -6,36 +6,40 @@
         <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1"/>
         <link rel="icon" href="/siiofweb/APP_Siiofweb/Menu/images/siiof/favicon.png" type="image/x-icon" />
 		<script type="text/javascript" src="/siiofweb/APP_Siiofweb/Menu/js/Plantilla_SIIOF.js?sesion=A57955273D89D1CC4D8D3D5C36B77035A9FFEBADB1CD5B6D40FEBFC7D350C8">
-		
-        </script>
+		</script>
 
         <script async data-main="js/main"  src="js/libs/require/require.js?sesion=A57955273D89D1CC4D8D3D5C36B77035A9FFEBADB1CD5B6D40FEBFC7D350C8"></script>
         <script nonce="EDNnf03nceIOfn39fn3e9h3sdfa">
         	Fn_Inicializa_Ambiente("Login");
-
         </script>
+
         <link rel="stylesheet" href="css/Tema_SIIOF.css?sesion=A57955273D89D1CC4D8D3D5C36B77035A9FFEBADB1CD5B6D40FEBFC7D350C8" media="screen"/>
 
     </head>
+
     <body class="siiof-signin-bg">
-        <div class="left">
-            <img src="../Menu/images/siiof/LOGO FIRA.svg" class="logo"/>
-        </div>
-        			   
+
+		<div class="contenedor-righ-left">
+
+		<div class="left-panel">
+			<h1>Bienvenidos</h1>
+        	<img src="../Menu/images/siiof/logo_FIRA.png" class="marca"/>
+        </div> 
+
+		<div class="right-panel">
         <div id="div1">
+			<img src="../Menu/images/siiof/LOGOSIIOF.svg" class="marca"/>
             <div id="page">
 				        <oj-messages messages="[[messagesDataprovider]]" position="{}" display="notification"></oj-messages>
                 <div align="center">
-                    <div id="login" class="oj-flex-item oj-sm-4 siiof-signin-column oj-flex oj-sm-flex-direction-column oj-sm-flex-wrap-nowrap">
+                    
                         <div class="oj-flex-item">
-                            <div class="center">
-                                <img src="../Menu/images/siiof/LOGOSIIOF.svg" class="marca"/>
-                            </div>
+                            
                             <div class="siiof-signin-form-container oj-panel oj-sm-10">
 																
                                     <oj-validation-group id="frm_valida_usuario" valid="{{v_valida_formulario}}">
 
-																  <oj-input-text id='TxtUsuario'
+																  <oj-input-text class="caja-usuario" id='TxtUsuario'
                       														 placeholder='Usuario'
                       														 spellcheck='false'
                       														 autocorrect='off'
@@ -76,12 +80,14 @@
               																	"at": {"vertical": "center", "horizontal": "center"}, "of": "window"}'
               																	 auto-dismiss="none" style="overflow: auto; max-height:100vh; max-width:90vw;"
               																	 modality="modal">
-              								<div align="center">
+              								
+											<div align="center">
               									<h3 class="oj-header-border">Cambiando la contraseña de <span data-bind="text: v_usuario"></span></h3>
               								</div>
               								<div align="left" class="panelCambio">
               									<center><b>*Requisitos para establecer una nueva contraseña*</b></center><br>Longitud mínima de 8 y máxima de 30 caracteres alfanuméricos.<br>Debe iniciar con una letra.<br>Debe contener al menos:<br>- Una letra mayúscula.<br>- Una letra minúscula.<br>- Un dígito.<br>Puede (Opcionalmente) contener alguno(s) de los caracteres<br>especiales: "$", "#", "_".<br>No debe ser igual al nombre de usuario.<br>No debe contener el nombre de usuario.<br>No debe contener espacios en blanco.<br>Debe ser diferente a las 3 últimas contraseñas utilizadas.<br>La nueva contraseña no se utilizó en los últimos 90 días.
               								</div>
+											
               								<div class="oj-flex">
               									<div class="oj-flex-item">
               											   <oj-validation-group id="frm_valida_contrasena" valid="{{frm_valida_contrasena}}">
@@ -152,9 +158,11 @@
 														</oj-popup> 													
 
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                
+                	</div>
+           		</div>
+        	</div>
+		</div>
+		</div>
     </body>
 </html>
